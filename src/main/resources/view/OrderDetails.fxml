@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1086.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.foodcity.controller.OrderDetailsController">
+    <children>
+        <ImageView fitHeight="768.0" fitWidth="1086.0" pickOnBounds="true" preserveRatio="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../img/coffee.jpg" />
+            </image>
+        </ImageView>
+
+        <AnchorPane style="-fx-background-color: rgba(0,0,0,0.65);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+
+        <VBox spacing="20.0" style="-fx-padding: 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label text="Order History &amp; Details" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font>
+                </Label>
+
+                <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: rgba(255, 255, 255, 0.1); -fx-padding: 15; -fx-background-radius: 12; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 12;">
+                    <children>
+                        <TextField fx:id="txtSearchOrder" prefHeight="35.0" prefWidth="300.0" promptText="Search by Order ID..." style="-fx-background-radius: 8; -fx-background-color: rgba(255,255,255,0.9);" />
+                        <Button onAction="#btnSearchOnAction" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #D2B48C; -fx-text-fill: #2D1E17; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand;" text="Search" />
+                    </children>
+                </HBox>
+
+                <VBox spacing="10.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label text="All Orders" textFill="#D2B48C" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+
+                        <TableView fx:id="tblOrders" prefHeight="250.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-color: rgba(255,255,255,0.3); -fx-border-radius: 10;">
+                            <columns>
+                                <TableColumn fx:id="colOrderId" prefWidth="120.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Order ID" />
+                                <TableColumn fx:id="colCustId" prefWidth="150.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Customer ID" />
+                                <TableColumn fx:id="colDate" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Date" />
+                                <TableColumn fx:id="colTotal" prefWidth="200.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Total Amount" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+
+                        <Label text="Items in Selected Order" textFill="#D2B48C" style="-fx-font-size: 18; -fx-font-weight: bold;">
+                            <VBox.margin><Insets top="15" /></VBox.margin>
+                        </Label>
+
+                        <TableView fx:id="tblOrderDetails" prefHeight="250.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-color: rgba(255,255,255,0.3); -fx-border-radius: 10;">
+                            <columns>
+                                <TableColumn fx:id="colItemCode" prefWidth="120.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Item Code" />
+                                <TableColumn fx:id="colQty" prefWidth="100.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Qty" />
+                                <TableColumn fx:id="colUnitPrice" prefWidth="150.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Unit Price" />
+                                <TableColumn fx:id="colSubTotal" prefWidth="150.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sub Total" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

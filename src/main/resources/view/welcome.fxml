@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.foodcity.controller.WelcomeController">
+    <children>
+        <ImageView fitHeight="768.0" fitWidth="1366.0" pickOnBounds="true" preserveRatio="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../img/coffee.jpg" />
+            </image>
+        </ImageView>
+
+        <AnchorPane style="-fx-background-color: rgba(26, 16, 13, 0.8);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+
+        <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+
+                <VBox alignment="CENTER" maxWidth="700.0" prefHeight="450.0" style="-fx-background-color: rgba(255, 255, 255, 0.08); -fx-background-radius: 30; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 30; -fx-padding: 40;">
+                    <children>
+                        <Label text="☕" textFill="#D2B48C">
+                            <font>
+                                <Font size="120.0" />
+                            </font>
+                        </Label>
+
+                        <Label style="-fx-letter-spacing: 12;" text="WELCOME" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="64.0" />
+                            </font>
+                        </Label>
+
+                        <Label text="COFFEE SHOP MANAGEMENT SYSTEM" textFill="#D2B48C">
+                            <font>
+                                <Font name="System Light" size="22.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="40.0" />
+                            </VBox.margin>
+                        </Label>
+
+                        <ProgressBar fx:id="progressBar" prefHeight="10.0" prefWidth="500.0" progress="0.0"
+                                     style="-fx-accent: #D2B48C;
+                                            -fx-control-inner-background: rgba(255, 255, 255, 0.1);
+                                            -fx-background-radius: 20;
+                                            -fx-text-box-border: transparent;
+                                            -fx-border-color: rgba(255, 255, 255, 0.2);
+                                            -fx-border-radius: 20;" />
+
+                        <Label fx:id="lblStatus" text="Initializing system modules..." textFill="#B5B5B5">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="15.0" />
+                            </VBox.margin>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+
+        <Label text="v1.0.0 - Powered by IJSE" textFill="#6F4E37" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" alignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

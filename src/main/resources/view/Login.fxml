@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.foodcity.controller.LoginController">
+    <children>
+        <ImageView fitHeight="768.0" fitWidth="1366.0" pickOnBounds="true" preserveRatio="false">
+            <image>
+                <Image url="@../img/coffee.jpg" />
+            </image>
+        </ImageView>
+
+        <AnchorPane style="-fx-background-color: rgba(26, 16, 13, 0.7);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+
+        <HBox prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+
+                <VBox alignment="CENTER" prefHeight="768.0" prefWidth="683.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="☕️" textFill="#D2B48C">
+                            <font><Font size="120.0" /></font>
+                        </Label>
+                        <Label text="COFFEE SHOP" textFill="WHITE">
+                            <font><Font name="System Bold" size="56.0" /></font>
+                        </Label>
+                        <Label text="Management System v1.0" textFill="#D2B48C">
+                            <font><Font size="20.0" /></font>
+                        </Label>
+                    </children>
+                </VBox>
+
+                <VBox alignment="CENTER" prefHeight="768.0" prefWidth="683.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <VBox maxWidth="450.0" spacing="15.0" style="-fx-background-color: rgba(255, 255, 255, 0.1); -fx-background-radius: 30; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 30; -fx-padding: 50;">
+                            <children>
+                                <Label text="Welcome Back" textFill="WHITE">
+                                    <font><Font name="System Bold" size="38.0" /></font>
+                                </Label>
+                                <Label text="Please login to your account" textFill="#D2B48C">
+                                    <font><Font size="16.0" /></font>
+                                    <VBox.margin><Insets bottom="20.0" /></VBox.margin>
+                                </Label>
+
+                                <Label text="Username" textFill="WHITE">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                </Label>
+                                <TextField fx:id="usernameField" prefHeight="45.0" promptText="Enter username"
+                                           style="-fx-background-color: rgba(255, 255, 255, 0.9); -fx-background-radius: 10; -fx-padding: 0 15 0 15;" />
+
+                                <Label text="Password" textFill="WHITE">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                    <VBox.margin><Insets top="5.0" /></VBox.margin>
+                                </Label>
+                                <PasswordField fx:id="passwordField" prefHeight="45.0" promptText="Enter password"
+                                               style="-fx-background-color: rgba(255, 255, 255, 0.9); -fx-background-radius: 10; -fx-padding: 0 15 0 15;" />
+
+                                <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" prefHeight="50.0" prefWidth="400.0"
+                                        style="-fx-background-color: #D2B48C; -fx-background-radius: 12; -fx-cursor: hand; -fx-text-fill: #2D1E17;" text="Sign In">
+                                    <font><Font name="System Bold" size="18.0" /></font>
+                                    <VBox.margin><Insets top="25.0" /></VBox.margin>
+                                </Button>
+
+                                <HBox alignment="CENTER">
+                                    <children>
+                                        <Hyperlink text="Forgot Password?" textFill="#D2B48C">
+                                            <font><Font size="14.0" /></font>
+                                        </Hyperlink>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                    <padding><Insets left="50.0" right="50.0" /></padding>
+                </VBox>
+
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
