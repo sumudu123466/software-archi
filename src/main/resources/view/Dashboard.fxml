@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.foodcity.controller.DashboardController">
+    <children>
+        <VBox prefHeight="768.0" prefWidth="280.0" spacing="10.0" style="-fx-background-color: #1a100d; -fx-border-color: rgba(255,255,255,0.1); -fx-border-width: 0 1 0 0;">
+            <children>
+                <Label text="☕ COFFEE SHOP" textFill="WHITE">
+                    <font><Font name="System Bold" size="26.0" /></font>
+                    <VBox.margin><Insets bottom="40.0" left="25.0" top="40.0" /></VBox.margin>
+                </Label>
+
+                <Button alignment="BASELINE_LEFT" onAction="#btnPlaceOrderOnAction" prefHeight="55.0" prefWidth="280.0" style="-fx-background-color: transparent; -fx-text-fill: #D2B48C; -fx-cursor: hand; -fx-padding: 0 0 0 25;" text="🛒  Place Order"><font><Font name="System Bold" size="16.0" /></font></Button>
+                <Button alignment="BASELINE_LEFT" onAction="#btnInventoryOnAction" prefHeight="55.0" prefWidth="280.0" style="-fx-background-color: transparent; -fx-text-fill: #D2B48C; -fx-cursor: hand; -fx-padding: 0 0 0 25;" text="📦  Inventory &amp; Items"><font><Font name="System Bold" size="16.0" /></font></Button>
+                <Button alignment="BASELINE_LEFT" onAction="#btnCustomerOnAction" prefHeight="55.0" prefWidth="280.0" style="-fx-background-color: transparent; -fx-text-fill: #D2B48C; -fx-cursor: hand; -fx-padding: 0 0 0 25;" text="👥  Customers"><font><Font name="System Bold" size="16.0" /></font></Button>
+                <Button alignment="BASELINE_LEFT" onAction="#btnOrderDetailsOnAction" prefHeight="55.0" prefWidth="280.0" style="-fx-background-color: transparent; -fx-text-fill: #D2B48C; -fx-cursor: hand; -fx-padding: 0 0 0 25;" text="📄  Order Details"><font><Font name="System Bold" size="16.0" /></font></Button>
+                <Button alignment="BASELINE_LEFT" onAction="#btnPaymentOnAction" prefHeight="55.0" prefWidth="280.0" style="-fx-background-color: transparent; -fx-text-fill: #D2B48C; -fx-cursor: hand; -fx-padding: 0 0 0 25;" text="💳  Payments"><font><Font name="System Bold" size="16.0" /></font></Button>
+
+                <Region VBox.vgrow="ALWAYS" />
+
+                <Button onAction="#btnLogoutOnAction" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #5D4037; -fx-text-fill: white; -fx-background-radius: 10; -fx-cursor: hand;" text="Logout">
+                    <font><Font name="System Bold" size="15.0" /></font>
+                    <VBox.margin><Insets bottom="30.0" left="25.0" /></VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+
+        <AnchorPane fx:id="pagingPane" prefHeight="768.0" prefWidth="1086.0" HBox.hgrow="ALWAYS">
+            <children>
+                <ImageView fitHeight="768.0" fitWidth="1086.0" pickOnBounds="true" preserveRatio="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <image><Image url="@../img/coffee.jpg" /></image>
+                </ImageView>
+
+                <AnchorPane style="-fx-background-color: rgba(45, 30, 23, 0.65);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                        <VBox alignment="CENTER" spacing="30.0" style="-fx-padding: 30;">
+                            <children>
+                                <Label text="Welcome to Coffee Shop Management" textFill="WHITE">
+                                    <font><Font name="System Bold" size="40.0" /></font>
+                                    <VBox.margin><Insets top="10.0" /></VBox.margin>
+                                </Label>
+
+                                <FlowPane alignment="CENTER" hgap="20.0" prefWrapLength="1000.0" vgap="20.0">
+                                    <children>
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                                <Image url="@../img/hot-chocolate.jpg" />
+                                            </ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Hot Chocolate" textFill="WHITE">
+                                                <VBox.margin><Insets top="8.0" /></VBox.margin>
+                                            </Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/choc-cake.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Fudge Cake" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/coffee.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Creamy Latte" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/sandwich.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Sandwich" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/istockphoto-936205772-612x612.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Choc IceCream" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/Puff-Pastry.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Puff Pastry" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/berry-smoothie.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Berry Smoothie" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/istockphoto-1753975566-612x612.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Donuts" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/Strawberry-Smoothie.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Straw. Smoothie" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/ice cream.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Ice Cream" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/ced-matcha.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Iced Matcha" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/cofee.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Black Coffee" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/360_F_281734416_81gY6wcQq8yKraXItCTCJJt8XbIjKJ4J.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Bred" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/bread-1284438_640.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Bred" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+                                        <VBox alignment="CENTER" prefHeight="210.0" prefWidth="180.0" style="-fx-background-color: rgba(255, 255, 255, 0.12); -fx-background-radius: 18; -fx-border-color: rgba(255, 255, 255, 0.2); -fx-border-radius: 18; -fx-padding: 8;">
+                                            <ImageView fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"><Image url="@../img/360_F_108106256_rwg4vQy4Ubb5JzZ2xvpNSMBFfRrTYofG.jpg" /></ImageView>
+                                            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Bred" textFill="WHITE"><VBox.margin><Insets top="8.0" /></VBox.margin></Label>
+                                        </VBox>
+                                    </children>
+                                </FlowPane>
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children>
+        </AnchorPane>
+    </children>
+</HBox>
