@@ -19,7 +19,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public boolean update(Customer entity) throws SQLException, ClassNotFoundException {
-        // NIC (id) එක පාවිච්චි කරලා අදාළ පාරිභෝගිකයාගේ විස්තර Update කිරීම
+        
         return CrudUtil.execute(
                 "UPDATE customer SET name=?, contact=?, email=? WHERE id=?",
                 entity.getName(), entity.getContact(), entity.getEmail(), entity.getId()
@@ -28,13 +28,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        // NIC එක පාවිච්චි කරලා පාරිභෝගිකයා ඉවත් කිරීම
+        
         return CrudUtil.execute("DELETE FROM customer WHERE id=?", id);
     }
 
     @Override
     public ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException {
-        // සියලුම පාරිභෝගිකයින් Database එකෙන් ලබා ගැනීම
+        
         ResultSet rst = CrudUtil.execute("SELECT * FROM customer");
         ArrayList<Customer> customerList = new ArrayList<>();
 
