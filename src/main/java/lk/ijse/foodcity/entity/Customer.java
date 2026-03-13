@@ -5,7 +5,7 @@ public class Customer {
     private String name;
     private String contact;
     private String email;
-    private String id; // NIC/National ID
+    private String id; 
 
     public Customer() {}
 
