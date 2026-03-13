@@ -1,9 +1,9 @@
 package lk.ijse.foodcity.dao.impl;
 
-// වැරදි import එක ඉවත් කර, නිවැරදි entity එක import කරන්න
+
 import com.mysql.cj.x.protobuf.MysqlxCrud;
 import lk.ijse.foodcity.dao.OrderDAO;
-import lk.ijse.foodcity.entity.Order; // මෙතන ඔයාගේ entity එක import වෙන්න ඕනේ
+import lk.ijse.foodcity.entity.Order;    
 import lk.ijse.foodcity.util.CrudUtil;
 
 import java.sql.ResultSet;
