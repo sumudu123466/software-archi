@@ -7,11 +7,9 @@ import java.sql.*;
 
 public class PlaceOrderDAOImpl implements PlaceOrderDAO {
     @Override
-    public boolean save(PlaceOrder placeOrder) throws SQLException {
+    public boolean save(PlaceOrder placeOrder) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO orders VALUES(?,?,?,?)";
-        Connection connection = DBConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement(sql);
-
+        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
         pstm.setString(1, placeOrder.getOrderId());
         pstm.setString(2, placeOrder.getCustomerId());
         pstm.setString(3, placeOrder.getDate());

@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.foodcity.bo.CustomerBO;
+import lk.ijse.foodcity.bo.custom.CustomerBO;
 import lk.ijse.foodcity.bo.impl.CustomerBOImpl;
 import lk.ijse.foodcity.dto.CustomerDTO;
 import java.sql.SQLException;

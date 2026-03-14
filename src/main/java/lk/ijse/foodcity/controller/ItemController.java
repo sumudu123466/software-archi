@@ -6,12 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import lk.ijse.foodcity.bo.ItemBO;
+import lk.ijse.foodcity.bo.custom.ItemBO;
 import lk.ijse.foodcity.bo.impl.ItemBOImpl;
 import lk.ijse.foodcity.dto.ItemDTO;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class ItemController {
 
@@ -63,8 +60,6 @@ public class ItemController {
             new Alert(Alert.AlertType.WARNING, "Please select an item to delete!").show();
             return;
         }
-
-        // තහවුරු කිරීමේ පණිවිඩයක් (Confirmation) පෙන්වීම වඩාත් සුදුසුයි
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this item?", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
 

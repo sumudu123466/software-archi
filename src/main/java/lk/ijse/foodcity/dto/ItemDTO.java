@@ -6,6 +6,7 @@ public class ItemDTO {
     private double price;
     private int qty;
 
+
     public ItemDTO() {}
 
     public ItemDTO(String code, String name, double price, int qty) {
@@ -13,6 +14,9 @@ public class ItemDTO {
         this.name = name;
         this.price = price;
         this.qty = qty;
+
+
+
     }
 
     public String getCode() { return code; }
@@ -26,4 +30,6 @@ public class ItemDTO {
 
     public int getQty() { return qty; }
     public void setQty(int qty) { this.qty = qty; }
+
+
 }

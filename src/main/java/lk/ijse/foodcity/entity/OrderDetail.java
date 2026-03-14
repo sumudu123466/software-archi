@@ -15,6 +15,7 @@ public class OrderDetail {
         this.unitPrice = unitPrice;
     }
 
+    // Getters and Setters
     public String getOrderId() { return orderId; }
     public void setOrderId(String orderId) { this.orderId = orderId; }
 
@@ -26,4 +27,7 @@ public class OrderDetail {
 
     public double getUnitPrice() { return unitPrice; }
     public void setUnitPrice(double unitPrice) { this.unitPrice = unitPrice; }
+
+    public double getSubTotal() {
+        return qty * unitPrice; }
 }

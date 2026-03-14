@@ -1,6 +1,7 @@
 package lk.ijse.foodcity.bo.impl;
 
-import lk.ijse.foodcity.bo.ItemBO;
+import lk.ijse.foodcity.bo.custom.ItemBO;
+import lk.ijse.foodcity.dao.DAOFactory;
 import lk.ijse.foodcity.dao.ItemDAO;
 import lk.ijse.foodcity.dao.impl.ItemDAOImpl;
 import lk.ijse.foodcity.dto.ItemDTO;
@@ -9,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ItemBOImpl implements ItemBO {
-    ItemDAO itemDAO = new ItemDAOImpl();
+    ItemDAO itemDAO = (ItemDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ITEM);
 
     @Override
     public boolean saveItem(ItemDTO dto) throws SQLException, ClassNotFoundException {
@@ -35,8 +36,8 @@ public class ItemBOImpl implements ItemBO {
             allDTO.add(new ItemDTO(
                     i.getCode(),
                     i.getName(),
-                    i.getUnitPrice(),
-                    i.getQtyOnHand()
+                    i.getPrice(),
+                    i.getQty()
             ));
         }
         return allDTO;

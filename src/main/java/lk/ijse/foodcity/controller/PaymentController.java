@@ -5,19 +5,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.foodcity.bo.custom.PaymentBO;
+import lk.ijse.foodcity.bo.impl.PaymentBOImpl;
 import lk.ijse.foodcity.dto.PaymentDto;
 import lk.ijse.foodcity.model.PaymentModel;
 import java.sql.SQLException;
 
 public class PaymentController {
-    @FXML private TextField txtOrderId, txtAmount;
+    @FXML private TextField txtPayId, txtOrderId, txtAmount;
     @FXML private DatePicker txtDate;
     @FXML private TableView<PaymentDto> tblPayment;
     @FXML private TableColumn<PaymentDto, Integer> colPayId, colOrderId;
     @FXML private TableColumn<PaymentDto, Double> colAmount;
     @FXML private TableColumn<PaymentDto, String> colDate;
 
-    public void initialize() {//inh
+    PaymentBO paymentBO = new PaymentBOImpl();
+
+    public void initialize() {
         colPayId.setCellValueFactory(new PropertyValueFactory<>("payId"));
         colOrderId.setCellValueFactory(new PropertyValueFactory<>("orderId"));
         colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
@@ -28,16 +32,22 @@ public class PaymentController {
     @FXML
     void btnSaveOnAction(ActionEvent event) {
         try {
-            PaymentDto dto = new PaymentDto(0,
+
+            PaymentDto dto = new PaymentDto(
+                    Integer.parseInt(txtPayId.getText()),
                     Integer.parseInt(txtOrderId.getText()),
                     Double.parseDouble(txtAmount.getText()),
-                    txtDate.getValue().toString());
+                    txtDate.getValue().toString()
+            );
+
 
             if (PaymentModel.savePayment(dto)) {
-                new Alert(Alert.AlertType.INFORMATION, "Saved!").show();
+                new Alert(Alert.AlertType.INFORMATION, "Payment Saved Successfully!").show();
                 loadAllPayments();
                 clearFields();
             }
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.ERROR, "Please check your number inputs!").show();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Error: " + e.getMessage()).show();
         }
@@ -49,6 +59,7 @@ public class PaymentController {
     }
 
     private void clearFields() {
+        txtPayId.clear();
         txtOrderId.clear();
         txtAmount.clear();
         txtDate.setValue(null);
@@ -57,6 +68,8 @@ public class PaymentController {
     private void loadAllPayments() {
         try {
             tblPayment.setItems(FXCollections.observableArrayList(PaymentModel.getAllPayments()));
-        } catch (SQLException e) { e.printStackTrace(); }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, "Database Error: " + e.getMessage()).show();
+        }
     }
 }

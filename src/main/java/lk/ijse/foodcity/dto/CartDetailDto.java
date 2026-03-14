@@ -4,14 +4,18 @@ public class CartDetailDto {
     private String itemCode;
     private int qty;
     private double unitPrice;
+    private double subTotal; // මේ field එක එකතු කළා
 
     public CartDetailDto() {}
 
-    public CartDetailDto(String itemCode, int qty, double unitPrice) {
+
+    public CartDetailDto(String itemCode, int qty, double unitPrice, double subTotal) {
         this.itemCode = itemCode;
         this.qty = qty;
         this.unitPrice = unitPrice;
+        this.subTotal = subTotal;
     }
+
 
     public String getItemCode() { return itemCode; }
     public void setItemCode(String itemCode) { this.itemCode = itemCode; }
@@ -21,4 +25,7 @@ public class CartDetailDto {
 
     public double getUnitPrice() { return unitPrice; }
     public void setUnitPrice(double unitPrice) { this.unitPrice = unitPrice; }
+
+    public double getSubTotal() { return subTotal; }
+    public void setSubTotal(double subTotal) { this.subTotal = subTotal; }
 }

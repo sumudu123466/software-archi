@@ -6,18 +6,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.foodcity.bo.custom.OrderBO;
+import lk.ijse.foodcity.bo.impl.OrderBOImpl;
 import lk.ijse.foodcity.dto.OrderDto;
 import lk.ijse.foodcity.dto.OrderDetailDto;
-import lk.ijse.foodcity.model.OrderModel;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class OrderDetailsController {
 
+    private static final Logger LOGGER = Logger.getLogger(OrderDetailsController.class.getName());
+    private final OrderBO orderBO = new OrderBOImpl();
+
     @FXML private TableView<OrderDto> tblOrders;
-    @FXML private TableColumn<OrderDto, String> colOrderId;
-    @FXML private TableColumn<OrderDto, String> colCustId;
-    @FXML private TableColumn<OrderDto, String> colDate;
+    @FXML private TableColumn<OrderDto, String> colOrderId, colCustId, colDate;
     @FXML private TableColumn<OrderDto, Double> colTotal;
 
     @FXML private TableView<OrderDetailDto> tblOrderDetails;
@@ -48,25 +53,35 @@ public class OrderDetailsController {
     }
 
     private void loadAllOrders() {
-        ArrayList<OrderDto> list = OrderModel.getAllOrders();
-        tblOrders.setItems(FXCollections.observableArrayList(list));
+        try {
+            List<OrderDto> list = orderBO.getAllOrders();
+            tblOrders.setItems(FXCollections.observableArrayList(list));
+        } catch (SQLException | ClassNotFoundException e) {
+            LOGGER.log(Level.SEVERE, "Error loading orders", e);
+            new Alert(Alert.AlertType.ERROR, "Failed to load orders!").show();
+        }
     }
 
     private void loadOrderDetails(String orderId) {
-        ArrayList<OrderDetailDto> details = OrderModel.getOrderDetails(orderId);
-        tblOrderDetails.setItems(FXCollections.observableArrayList(details));
+        try {
+            List<OrderDetailDto> details = orderBO.getOrderDetails(orderId);
+            tblOrderDetails.setItems(FXCollections.observableArrayList(details));
+        } catch (SQLException | ClassNotFoundException e) {
+            LOGGER.log(Level.SEVERE, "Error loading order details", e);
+            new Alert(Alert.AlertType.ERROR, "Failed to load details!").show();
+        }
     }
 
     @FXML
-    void btnSearchOnAction(ActionEvent event) {
+    void btnSearchOnAction(ActionEvent ignored) {
         String searchId = txtSearchOrder.getText().trim();
         if (searchId.isEmpty()) {
             loadAllOrders();
             return;
         }
 
-        ObservableList<OrderDto> currentList = tblOrders.getItems();
-        for (OrderDto dto : currentList) {
+        ObservableList<OrderDto> items = tblOrders.getItems();
+        for (OrderDto dto : items) {
             if (dto.getOrderId().equalsIgnoreCase(searchId)) {
                 tblOrders.getSelectionModel().select(dto);
                 tblOrders.scrollTo(dto);

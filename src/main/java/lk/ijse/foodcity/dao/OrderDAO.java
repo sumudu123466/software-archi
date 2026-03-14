@@ -1,13 +1,10 @@
 package lk.ijse.foodcity.dao;
 
-import com.mysql.cj.x.protobuf.MysqlxCrud;
 import lk.ijse.foodcity.entity.Order;
-
 import java.sql.SQLException;
+import java.util.List;
 
-public interface OrderDAO {
-    boolean save(Order entity) throws SQLException, ClassNotFoundException;
-
-    boolean save(MysqlxCrud.Order entity) throws SQLException, ClassNotFoundException;
-    String getNextOrderId() throws SQLException, ClassNotFoundException;
+public interface OrderDAO extends SuperDAO {
+    List<Order> getAll() throws SQLException, ClassNotFoundException;
+    String generateNextOrderId() throws SQLException, ClassNotFoundException;
 }
